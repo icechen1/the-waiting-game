@@ -1,8 +1,9 @@
+var path = require('path');
 var app = require('express')();
 var server = require('http').createServer(app);
 
 app.get('/', function (req, res) {
-  res.sendFile('index.html')
+  res.sendFile(path.join(__dirname, '/index.html'))
 })
 
 var io = require('socket.io')(server);
