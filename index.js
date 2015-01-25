@@ -7,8 +7,8 @@ app.get('/', function (req, res) {
 })
 
 var io = require('socket.io')(server);
-io.on('connection', function(){
-    io.emit('challenger', 1);
+io.on('connection', function(socket){
+    socket.broadcast.emit('challenger', 1);
 });
 server.listen(3000, function () {
 
